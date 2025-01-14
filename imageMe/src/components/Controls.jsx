@@ -1,4 +1,3 @@
-// src/components/Controls.jsx
 import React from 'react';
 
 const Controls = ({

@@ -1,4 +1,3 @@
-// src/components/AsciiArtDisplay.jsx
 import React from 'react';
 
 const AsciiArtDisplay = ({ asciiArt, color, isLoading }) => {
