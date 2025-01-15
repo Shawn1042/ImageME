@@ -1,4 +1,5 @@
-import React from 'react';
+// src/components/Controls.jsx
+import React, { useState } from "react";
 
 const Controls = ({
   onImageUpload,
@@ -6,31 +7,45 @@ const Controls = ({
   onDownloadTxt,
   onDownloadPng,
   color,
+  onCanvasSizeChange, // new prop
 }) => {
+  
+  const [selectedSize, setSelectedSize] = useState("200x200");
+
+  const handleSizeChange = (e) => {
+    const size = e.target.value;
+    setSelectedSize(size);
+    onCanvasSizeChange(size);
+  };
+
   return (
     <div className="controls">
+      {/* File Upload */}
       <div className="control-group">
-        <input
-          type="file"
-          accept="image/*"
-          onChange={onImageUpload}
-          id="imageUploader"
-        />
+        <input type="file" accept="image/*" onChange={onImageUpload} />
       </div>
 
+      {/* Color Picker */}
       <div className="control-group">
         <label htmlFor="colorPicker">ASCII Text Color:</label>
-        <input
-          type="color"
-          id="colorPicker"
-          value={color}
-          onChange={onColorChange}
-        />
+        <input type="color" id="colorPicker" value={color} onChange={onColorChange} />
       </div>
 
+      {/* NEW: Canvas Size Dropdown */}
       <div className="control-group">
-        <button onClick={onDownloadTxt}>Download ASCII (.txt)</button>
-        <button onClick={onDownloadPng}>Download ASCII (.png)</button>
+        <label htmlFor="canvasSizeSelect">ASCII Canvas Resize Options <br /> Coming Soon</label>
+        
+        <select id="canvasSizeSelect" value={selectedSize} onChange={handleSizeChange}>
+          <option value="100x100">100×100</option>
+          <option value="200x200">200×200</option>
+          <option value="400x400">400×400</option>
+        </select>
+      </div>
+
+      {/* Download Buttons */}
+      <div className="control-group">
+        <button onClick={onDownloadTxt}>Download ASCII as a (.txt)</button>
+        <button onClick={onDownloadPng}>Download ASCII as a (.png)</button>
       </div>
     </div>
   );
