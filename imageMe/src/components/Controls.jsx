@@ -33,13 +33,18 @@ const Controls = ({
 
       {/* NEW: Canvas Size Dropdown */}
       <div className="control-group">
-        <label htmlFor="canvasSizeSelect">ASCII Canvas Resize Options <br /> Coming Soon</label>
+        <label htmlFor="canvasSizeSelect"> <h2>Features coming soon: </h2></label>
+        <ul  style={{listStyle: "none"}}>
+          <li style={{whiteSpace: "nowrap"}}> - ASCII Canvas Resize Options Coming Soon</li>
+          <li> - Resizing Image</li>
+          <li> - Better output of photo saved</li>
+        </ul>
         
-        <select id="canvasSizeSelect" value={selectedSize} onChange={handleSizeChange}>
+        {/* <select id="canvasSizeSelect" value={selectedSize} onChange={handleSizeChange}>
           <option value="100x100">100×100</option>
           <option value="200x200">200×200</option>
           <option value="400x400">400×400</option>
-        </select>
+        </select> */}
       </div>
 
       {/* Download Buttons */}
